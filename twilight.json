@@ -1,7 +1,7 @@
 {
     "name": {
-        "en": "bags",
-        "ar": "bags"
+        "ar": "أكياس",
+        "en": "Bags"
     },
     "repository": "https://github.com/tpomits390/bags",
     "author_email": "tpomits390@gmail.com",
@@ -1027,7 +1027,7 @@
     ],
     "support_url": "http://exampl.com",
     "description": {
-        "en": "",
-        "ar": ""
+        "ar": null,
+        "en": null
     }
 }
