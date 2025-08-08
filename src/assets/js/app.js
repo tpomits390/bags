@@ -345,9 +345,9 @@ class App extends AppHelpers {
       document
         .querySelectorAll("[data-cart-count]")
         .forEach((el) => (el.innerText = salla.helpers.number(summary.count)));
-      
+
       // Update custom cart badge
-      const cartBadge = document.querySelector('.cart-count-badge');
+      const cartBadge = document.querySelector(".cart-count-badge");
       if (cartBadge) {
         cartBadge.textContent = summary.count || 0;
       }
