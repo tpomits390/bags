@@ -38,9 +38,6 @@
       @apply bg-gray-100/10 hover:bg-gray-100/[0.15]
     }
 
-    .topnav-link-item{
-      @apply border-gray-300/10;
-    }
 
     .s-search-input{
       @apply text-white;
@@ -54,7 +51,7 @@
 
 // contacs menu items - pages menu items
 .topnav-link-item{
-  @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-sm leading-none ltr:border-r rtl:border-l border-gray-200 ltr:last:border-0 rtl:last:border-0 hover:opacity-80;
+  @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-sm leading-none hover:opacity-80;
 
   &.right-side{
     @apply rtl:first:pr-0 ltr:first:pl-0
@@ -155,7 +152,7 @@
   @apply border-none outline-none transition-opacity hover:opacity-80;
 
   &__icon{
-    @apply text-xl w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-700;
+    @apply text-xl w-10 h-10 rounded-full  flex items-center justify-center text-gray-700;
     &.icon{
       @apply mr-[9px] rtl:ml-[9px] rtl:mr-[unset];
     }
@@ -193,4 +190,27 @@ salla-user-menu{
   .s-search-results{
     @apply z-10;
   }
+}
+
+// Main nav search bar
+.header-search-main {
+  @apply hidden lg:block;
+  
+  .s-search-input {
+    @apply bg-gray-50  hover:bg-gray-100 focus:bg-white focus:border-primary;
+  }
+  
+  .s-search-results {
+    @apply z-30;
+  }
+}
+
+// Show cart count (number of products)
+.s-cart-summary-count {
+  @apply -top-0.5 ltr:-left-1.5 rtl:-right-1.5 bg-red-800 text-white text-xs rounded-full min-w-[20px] h-5 flex items-center justify-center;
+}
+
+// Hide cart total amount only
+.s-cart-summary-total {
+  @apply hidden !important;
 }
