@@ -34,13 +34,13 @@
 {% extends "layouts.master" %}
 
 {% block content %}
-    <div class="h-62 -mb-52 w-full bg-primary rtl:right-0 ltr:left-0 relative -z-1 bg-cover bg-no-repeat bg-center"
+    <div class="relative w-full bg-center bg-no-repeat bg-cover h-62 -mb-52 bg-primary rtl:right-0 ltr:left-0 -z-1"
          style="background-image:url({{ loyalty.image }})">
-        <div class="overlay h-full w-full bg-black opacity-50 absolute top-0 left-0"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 overlay"></div>
     </div>
     <div class="container space-y-8 lg:space-y-16">
         {# Breadcrumbs #}
-        <nav class="breadcrumbs w-full py-5"><salla-breadcrumb></salla-breadcrumb></nav>
+        <nav class="w-full py-5 breadcrumbs"><salla-breadcrumb></salla-breadcrumb></nav>
 
         {# loyalty banner #}
         <div class="loyalty__banner">
@@ -72,14 +72,14 @@
         </div>
 
         {# ways to get points #}
-        <section class="points-ways pt-6">
+        <section class="pt-6 points-ways">
             <div class="s-block__title">
               <h2>{{ trans("pages.loyalty_program.ways_to_get_points") }}</h2>
             </div>
             <div class="points-ways__list">
                 {% for point in loyalty.points %}
                     <div class="way-item">
-                        <div class="flex rtl:space-x-reverse space-x-4">
+                        <div class="flex space-x-4 rtl:space-x-reverse">
                             <span class="way-item__icon {{ point.icon ?:'sicon-star' }}"
                                   style="color: {{ point.color }}">
                               <span style="background-color: {{ point.color }}"></span>
@@ -105,7 +105,7 @@
                                                 title="{{ trans('pages.loyalty_program.copy_link') }}">
                                             <i class="copy-icon sicon-swap-fill"></i>
                                         </salla-button>
-                                        <h3 class="font-bold text-sm leading-8 whitespace-nowrap text-ellipsis overflow-hidden text-primary"
+                                        <h3 class="overflow-hidden text-sm font-bold leading-8 whitespace-nowrap text-ellipsis text-primary"
                                             dir="ltr">
                                             {{ point.url }}
                                         </h3>
@@ -142,15 +142,15 @@
                   <div slot="items">
                       {% for prize in prize_group.items %} 
                           <div class="slide--one-fourth">
-                              <div class='product-entry flex-col'>
+                              <div class='flex-col product-entry'>
                                   {% set img %}
-                                      <img class="lazy sm:h-full w-full object-cover rounded-t-md"
+                                      <img class="object-cover w-full lazy sm:h-full rounded-t-md"
                                           src="{{ 'images/s-empty.png' | cdn }}"
                                           data-src="{{ prize.image }}"
                                           alt="{{ prize.name }}"/>
                                   {% endset %}
                                   {% if prize.url %}
-                                      <a href="{{ prize.url }}" class='product-entry__image h-40'>
+                                      <a href="{{ prize.url }}" class='h-40 product-entry__image'>
                                           {{ img }}
                                       </a>
                                   {% else %}
@@ -167,7 +167,7 @@
                                       <p class="text-sm leading-6 ">{{ prize.description }}</p>
                                   </div>
                                   {% if user.type == 'user' %}
-                                      <div class="font-bold text-primary p-4 text-center border-t">
+                                      <div class="p-4 font-bold text-center border-t text-primary">
                                           {{ prize.cost_points }}
                                           {{ trans("pages.loyalty_program.point") }}
                                       </div>
