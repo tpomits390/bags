@@ -1,24 +1,42 @@
 {#
-| Variable                        | Type     | Description                                                                  |
+| Variable | Type | Description |
 |---------------------------------|----------|------------------------------------------------------------------------------|
-| component                       | object   | Contains merchant settings for fields from twilight.json `component` section |
-| component.banners               | object[] | list of banners                                                              |
-| component.banners[].image       | string   |                                                                              |
-| component.banners[].url         | string   |                                                                              |
-| component.banners[].title       | ?string  |                                                                              |
-| component.banners[].description | ?string  |                                                                              |
-| position                        | int      | Sorting number start from zero                                               |
+| component | object | Contains merchant settings for fields from twilight.json `component` section |
+| component.banners | object[] | list of banners |
+| component.banners[].image | string | |
+| component.banners[].url | string | |
+| component.banners[].title | ?string | |
+| component.banners[].description | ?string | |
+| position | int | Sorting number start from zero |
 #}
 
-<section class="s-block s-block--banners container">
-    <div class="grid {{ component.banners|length <= 3 ? 'md:grid-cols-' ~ component.banners|length : 'md:grid-cols-3 two-row' }} grid-flow-row gap-3 sm:gap-8">
-        {% for index, banner in component.banners %}
-            <a  href="{{banner.url}}" aria-label="{{ (banner.title ? banner.title : 'square-banner-' ~ index) | e('html_attr') }}" class="banner-entry lazy {{banner.title ? 'has-overlay' : ''}} {{ component.banners|length <= 3 ? "h-lg-banner" : "h-banner" }}" data-bg="{{ banner.image }}">
+<section class="relative py-8 overflow-hidden md:py-16 s-block s-block--banners"
+    style="background: radial-gradient(ellipse at top left, #fef3c7 0%, #fde68a 30%, #fed7aa 60%, #fecaca 100%);">
+    <!-- Background decorative shapes -->
+    <div class="absolute top-0 right-0 w-32 h-32 rounded-full opacity-30 md:w-48 md:h-48"
+        style="background: linear-gradient(45deg, #ec4899, #be185d); transform: translate(25%, -25%);"></div>
+    <div class="absolute bottom-0 left-0 rounded-full opacity-25 w-36 h-36 md:w-56 md:h-56"
+        style="background: linear-gradient(45deg, #10b981, #059669); transform: translate(-25%, 25%);"></div>
+    <div class="absolute w-24 h-24 rounded-full top-1/2 left-1/2 opacity-15 md:w-32 md:h-32"
+        style="background: linear-gradient(45deg, #f59e0b, #d97706); transform: translate(-50%, -50%);"></div>
+
+    <div class="container relative z-10">
+        <div
+            class="grid {{ component.banners|length <= 3 ? 'md:grid-cols-' ~ component.banners|length : 'md:grid-cols-3 two-row' }} grid-flow-row gap-3 sm:gap-8">
+            {% for index, banner in component.banners %}
+            <a href="{{banner.url}}"
+                aria-label="{{ (banner.title ? banner.title : 'square-banner-' ~ index) | e('html_attr') }}"
+                class="banner-entry lazy {{ component.banners|length <= 3 ? " h-lg-banner" : "h-banner" }}"
+                data-bg="{{ banner.image }}">
                 <article class="banner-entry__text text-with-border">
-                    <h3 class="banner__title font-bold mb-1 leading-6">{{banner.title}}</h3>
-                    <p class="banner__description">{{banner.description}}</p>
+                    <h3 class="mb-1 font-bold leading-6 text-black banner__title drop-shadow-lg"
+                        style="-webkit-text-stroke: 1px black; text-stroke: 1px black;">{{banner.title}}</h3>
+                    <p class="text-black banner__description drop-shadow-md"
+                        style="-webkit-text-stroke: 0.5px rgb(255, 0, 0); text-stroke: 0.5px black;">
+                        {{banner.description}}</p>
                 </article>
             </a>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </section>

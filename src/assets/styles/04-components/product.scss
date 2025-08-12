@@ -7,7 +7,7 @@
     @apply justify-between p-4 flex-col sm:flex-row;
 
     .product-entry__image {
-      @apply overflow-hidden w-16 h-12 md:w-20 md:h-16 rounded-md;
+      @apply overflow-hidden w-12 h-9 md:w-16 md:h-12 rounded-md;
     }
 
     salla-button{
@@ -74,7 +74,7 @@
   }
 
 .pie-wrapper {
-  @apply w-[72px] h-[72px] absolute top-2.5 rtl:left-5 ltr:right-5 text-primary flex items-center justify-center;
+  @apply w-[56px] h-[56px] absolute top-2.5 rtl:left-5 ltr:right-5 text-primary flex items-center justify-center;
 
   .pie-svg {
     circle {
@@ -220,12 +220,12 @@
 // product options file upload component
 .product-option-uploader{
   .s-file-upload-wrapper{
-    min-height: 120px;
+    min-height: 90px;
     .filepond--list-scroller{
       overflow-y: inherit !important;
     }
     .filepond--drop-label {
-      min-height: 120px !important;
+      min-height: 90px !important;
       @apply bg-white cursor-pointer border-dashed rounded-md border border-gray-200;
     }
     .product-option-uploader-placholder{
@@ -245,7 +245,7 @@
 // centered offer modal width fix
 @media (max-width: 640px) {
   .s-offer-modal-slider-centered .s-offer-modal-slider-item {
-    max-width: 46% !important;
+    max-width: 36% !important;
   }
 }
 
@@ -298,8 +298,8 @@
 	  border-radius: 50%;
 	  cursor: none;
 	  /*Set the size of the magnifier glass:*/
-	  width: 300px;
-	  height: 300px;
+	  width: 200px;
+	  height: 200px;
 	  opacity:0;
 	  pointer-events:none;
 	  transform: scale(0);
@@ -402,5 +402,51 @@ salla-quantity-input[max='1']{
 
   .s-quantity-input-button {
     @apply cursor-not-allowed
+  }
+}
+
+// Hide Add to Cart buttons in specific sections
+.hide-add-to-cart-buttons {
+  salla-add-product-button,
+  .s-add-to-cart-button,
+  button[type="submit"]:has(i.sicon-shopping-bag),
+  .add-to-cart {
+    @apply hidden #{!important};
+  }
+}
+
+// Reduce product card image sizes for slider sections
+.slider-products-small-images {
+  salla-products-slider {
+    --product-card-image-height: 120px;
+  }
+  
+  img {
+    max-height: 120px !important;
+    height: auto !important;
+    object-fit: cover;
+  }
+  
+  .s-product-card-image {
+    height: 120px !important;
+    max-height: 120px !important;
+  }
+  
+  .s-product-card {
+    img {
+      max-height: 120px !important;
+      height: auto !important;
+    }
+  }
+}
+
+// More specific targeting for salla product cards in sliders
+salla-products-slider[slider-id*="slider-with-bg"] {
+  .s-product-card-image,
+  .s-product-card img,
+  img {
+    max-height: 120px !important;
+    height: auto !important;
+    object-fit: cover !important;
   }
 }

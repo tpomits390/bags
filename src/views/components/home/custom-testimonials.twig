@@ -1,4 +1,4 @@
-<section class="s-block s-block--testimonials s-block--custom-testimonials container overflow-hidden">
+<section class="container overflow-hidden s-block s-block--testimonials s-block--custom-testimonials">
 	<div class="s-reviews-container">
 		<div class="s-reviews-header-wrapper">
 			<h1 class="s-reviews-header">{{ trans('blocks.home.testimonials') }}</h1>
@@ -14,9 +14,9 @@
 								</div>
 								<div class="s-reviews-testimonial__text">
 									<p class="">{{ item.text }}</p>
-									<div class="s-reviews-testimonial__name_wrapper items-center">
+									<div class="items-center s-reviews-testimonial__name_wrapper">
 										<div class="s-reviews-testimonial__info">
-											<h2 class="font-bold text-xs xs:text-sm">{{ item.name }}</h2>
+											<h2 class="text-xs font-bold xs:text-sm">{{ item.name }}</h2>
 										</div>
 										<div class="s-reviews-testimonial__rating !mx-0">
 											<salla-rating-stars class="flex" size="small" value="{{ item.stars }}"></salla-rating-stars>
