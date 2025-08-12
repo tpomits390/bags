@@ -10,26 +10,35 @@
 #}
 <section class="s-block s-block--hero-slider s-block--full-bg wide-placeholder">
     <salla-slider id="main-slider-{{ position }}" auto-play slider-config='{
-        "lazy": "false",
-        "autoplay": {
-          "delay": 3000,
-          "disableOnInteraction": false
-        },
-        "navigation": false,
-        "pagination": false
-      }' type="fullwidth">
+            "lazy": false,
+            "autoplay": {
+                "delay": 4000,
+                "disableOnInteraction": false
+            },
+            "loop": true
+        }' type="fullwidth">
         <div slot="items">
             {% for slide in component.slides %}
-            <div class="swiper-slide w-full min-h-[300px] lg:min-h-[528px] bg-dark relative">
-                <div style="background-image: url({{ slide.image }});"
-                    class="absolute inset-0 bg-center bg-cover overlay-bg"></div>
+            <div class="relative w-full h-screen swiper-slide bg-dark">
+                <a href="{{ slide.link | default('#') }}" class="block w-full h-full">
+                    <div style="background-image: url('{{ slide.image }}');"
+                        class="absolute inset-0 bg-center bg-cover"></div>
 
-                {# <div class="container relative h-full pb-16 flex-center sm:pb-0 home-slider__content">
-                    <div class="w-4/6 text-center text-white md:w-7/12 lg:w-5/12">
-                        <h2 class="mb-4 font-bold leading-tight lg:text-title-size">{{ slide.title }}</h2>
-                        <p class="line-clamp-2 description">{{ slide.description }}</p>
+                    <div class="container relative flex items-center justify-center h-full p-4 text-center text-white"> ">
+                        <div class="max-w-xl p-6">
+                            {% if slide.title %}
+                            <h2 data-swiper-parallax="-500" class="mb-4 text-3xl font-bold leading-tight lg:text-5xl">
+                                {{ slide.title }}
+                            </h2>
+                            {% endif %}
+                            {% if slide.description %}
+                            <p data-swiper-parallax="-300" class="line-clamp-2">
+                                {{ slide.description }}
+                            </p>
+                            {% endif %}
+                        </div>
                     </div>
-                </div> #}
+                </a>
             </div>
             {% endfor %}
         </div>
