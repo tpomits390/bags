@@ -418,7 +418,7 @@ salla-quantity-input[max='1']{
 // Reduce product card image sizes for slider sections
 .slider-products-small-images {
   .s-product-card-image {
-    @apply h-60 sm:h-40 #{!important};
+    @apply h-40 sm:h-40 #{!important};
   }
   
   .s-product-card-vertical .s-product-card-image {

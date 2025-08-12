@@ -397,3 +397,21 @@
 .s-block--tabs-produtcs + .s-block--tabs-produtcs {
   padding-top: 2em;
 }
+
+// Reduce banner image sizes for enhanced square banners
+.small-banner-images {
+  .banner-entry {
+    // Override default banner-entry height (200px from home-blocks.scss line 78)
+    @apply h-36 sm:h-40 #{!important};
+    
+    &.h-banner {
+      // Reduce h-banner from 200px to ~144px/160px
+      @apply h-36 sm:h-40 #{!important};
+    }
+    
+    &.h-lg-banner {
+      // Reduce h-lg-banner from 428px to ~192px/224px  
+      @apply h-48 sm:h-56 #{!important};
+    }
+  }
+}
