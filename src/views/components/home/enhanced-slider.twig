@@ -12,7 +12,7 @@
     <salla-slider id="main-slider-{{ position }}" auto-play slider-config='{
             "lazy": false,
             "autoplay": {
-                "delay": 4000,
+                "delay": 3000,
                 "disableOnInteraction": false
             },
             "loop": true
@@ -24,7 +24,7 @@
                     <div style="background-image: url('{{ slide.image }}');"
                         class="absolute inset-0 bg-center bg-cover"></div>
 
-                    <div class="container relative flex items-center justify-center h-full p-4 text-center text-white"> ">
+                    <div class="container relative flex items-center justify-center h-full p-4 text-center text-blue-500">
                         <div class="max-w-xl p-6">
                             {% if slide.title %}
                             <h2 data-swiper-parallax="-500" class="mb-4 text-3xl font-bold leading-tight lg:text-5xl">
