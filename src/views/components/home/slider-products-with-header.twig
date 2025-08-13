@@ -24,11 +24,12 @@
 
     {% set display_all = component.display_all_url %}
     <div class="container relative overflow-hidden -mt-62">
-        <div class="hide-add-to-cart-buttons slider-products-small-images">
+        <div class="hide-add-to-cart-buttons slider-products-small-images product-slider-custom">
             <salla-products-slider {% if component.products|length %} source="selected"
                 source-value="[{{ component.products|map((product) => product.id)|join(',') }}]" {% endif %} {% if
                 display_all !='' and display_all !='#' %} display-all-url="{{display_all}}" {% endif %} block-title=" "
-                slider-id="slider-with-bg-{{ position }}"></salla-products-slider>
+                slider-id="slider-with-bg-{{ position }}"
+                class="hide-add-to-cart-buttons slider-products-small-images"></salla-products-slider>
         </div>
     </div>
 </section>

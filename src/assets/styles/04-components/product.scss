@@ -414,22 +414,3 @@ salla-quantity-input[max='1']{
     @apply hidden #{!important};
   }
 }
-
-// Reduce product card image sizes for slider sections
-.slider-products-small-images {
-  .s-product-card-image {
-    @apply h-40 sm:h-40 #{!important};
-  }
-  
-  .s-product-card-vertical .s-product-card-image {
-    @apply h-28 sm:h-36 #{!important};
-  }
-  
-  .s-product-card-horizontal .s-product-card-image {
-    @apply w-20 h-20 sm:w-24 sm:h-24 #{!important};
-  }
-  
-  .s-product-card-minimal .s-product-card-image {
-    @apply w-16 h-16 sm:w-20 sm:h-20 #{!important};
-  }
-}
